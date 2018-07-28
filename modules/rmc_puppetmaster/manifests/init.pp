@@ -1,6 +1,6 @@
 class rmc_puppetmaster {
   package { 'ruby':
-    ensure => '2.5.1',
+    ensure => '1:2.5.1',
   }
   ->
   package { 'r10k':
