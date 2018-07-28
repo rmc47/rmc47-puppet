@@ -13,6 +13,6 @@ class rmc_puppetmaster {
   }
   ->
   file { '/etc/puppetlabs/r10k/r10k.yaml':
-    content => template('rg_puppetserver/r10k.yaml.erb'),
+    content => template('rmc_puppetmaster/r10k.yaml.erb'),
   }
 }
