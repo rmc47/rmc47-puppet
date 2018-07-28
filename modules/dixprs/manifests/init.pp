@@ -39,10 +39,10 @@ class dixprs (
 
 	# Grant membership of the dialout and tty groups
 	group { 'dialout':
-		membership => "pi",
+		members => "pi",
 	}
 	group { 'tty':
-		membership => "pi",
+		members => "pi",
 	}
 
 }
