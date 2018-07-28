@@ -2,3 +2,9 @@
 dixprs::callsign: MB7UM
 dixprs::latitude: 52.215397
 dixprs::longitude: 0.037046
+dixprs::symbol: "S#"
+dixprs::beaconText: Cambridgeshire Repeater Group digi, Madingley
+dixprs::aprsisHost: euro.aprs2.net
+dixprs::aprsisFilter: r/@/50
+dixprs::kissPort: /dev/ttyAMA0
+dixprs::serialSpeed: 19200
