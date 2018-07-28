@@ -8,7 +8,6 @@ class dixprs (
 	$aprsisFilter,
 	$kissPort,
 	$serialSpeed,
-  $spooldir
 	) {
 
 	require dixprs::install
