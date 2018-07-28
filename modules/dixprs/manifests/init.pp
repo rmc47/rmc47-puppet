@@ -7,10 +7,18 @@ class dixprs (
 	$aprsisHost,
 	$aprsisFilter,
 	$kissPort,
-	$serialSpeed
+	$serialSpeed,
+  $spooldir
 	) {
 
 	require dixprs::install
+
+  # Message spool directory. $spooldir is used in the config file as well.
+  $spooldir = '/home/pi/dixprs-spool'
+  file { "$spooldir":
+    ensure => present,
+    owner => 'pi',
+  }
 
 	# Make ourselves a nice config file from the template
 	file { '/home/pi/dixprs/config.txt':

@@ -62,7 +62,7 @@ LATITUDE=<%= scope['dixprs::latitude'] %>
 #OWNER=<str>
 
 # Spool directory to import packets; no default
-#SPOOL=<path>
+SPOOL=<%= scope['dixprs::spooldir'] %>
 
 # Station symbol; default is S#
 SYMBOL=<%= scope['dixprs::symbol'] %>
