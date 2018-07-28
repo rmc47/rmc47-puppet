@@ -7,4 +7,12 @@ class rmc_puppetmaster {
     ensure => '2.6.3',
     provider => 'gem',
   }
+  ->
+  file { '/etc/puppetlabs/r10k':
+    ensure => 'directory',
+  }
+  ->
+  file { '/etc/puppetlabs/r10k/r10k.yaml':
+    content => template('rg_puppetserver/r10k.yaml.erb'),
+  }
 }
