@@ -3,7 +3,7 @@ class rmc_puppetmaster {
     ensure => '2.5.1',
   }
   ->
-  pakcage { 'r10k':
+  package { 'r10k':
     ensure => '2.6.3',
     provider => 'gem',
   }
