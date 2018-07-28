@@ -1,4 +1,4 @@
-class crg_common {
+class linux_common {
 	package {'vim':
 		ensure => latest,
 	}
