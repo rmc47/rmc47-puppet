@@ -15,7 +15,7 @@ class dixprs (
   # Message spool directory. $spooldir is used in the config file as well.
   $spooldir = '/home/pi/dixprs-spool'
   file { "$spooldir":
-    ensure => present,
+    ensure => directory,
     owner => 'pi',
   }
 
