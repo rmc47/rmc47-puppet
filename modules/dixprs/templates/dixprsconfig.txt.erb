@@ -90,9 +90,6 @@ BCNTXT=<%= scope['dixprs::beaconText'] %>
 # No default
 #MSGRANGE=<fv>
 
-# Do we send our internal telemetry?
-SENDTELEMETRY=n
-
 #################################################################
 #                                                               #
 # IS gateway settings; remove this section to disable GW        #
@@ -114,6 +111,9 @@ host=<%= scope['dixprs::aprsisHost'] %>
 # Filter; default is r/@/150
 # @ is replaced with station position
 FILTER=<%= scope['dixprs::aprsisFilter'] %>
+
+# Do we send our internal telemetry?
+SENDTELEMETRY=n
 
 #################################################################
 #                                                               #
