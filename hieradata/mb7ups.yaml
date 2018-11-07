@@ -1,0 +1,10 @@
+---
+dixprs::callsign: MB7UPS
+dixprs::latitude: 51.717
+dixprs::longitude: -0.337
+dixprs::symbol: "S#"
+dixprs::beaconText: Mid-Herts Digi
+dixprs::aprsisHost: euro.aprs2.net
+dixprs::aprsisFilter: r/@/50
+dixprs::kissPort: /dev/ttyAMA0
+dixprs::serialSpeed: 19200
