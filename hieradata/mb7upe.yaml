@@ -1,0 +1,10 @@
+---
+dixprs::callsign: MB7UPE
+dixprs::latitude: 52.580
+dixprs::longitude: -0.294
+dixprs::symbol: "S#"
+dixprs::beaconText: Cambridgeshire RAYNET digi
+dixprs::aprsisHost: euro.aprs2.net
+dixprs::aprsisFilter: r/@/50
+dixprs::kissPort: /dev/ttyAMA0
+dixprs::serialSpeed: 19200
