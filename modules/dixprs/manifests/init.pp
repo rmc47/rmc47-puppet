@@ -11,6 +11,7 @@ class dixprs (
 	) {
 
 	require dixprs::install
+  require dixprs::user
 
   # Message spool directory. $spooldir is used in the config file as well.
   $spooldir = '/home/pi/dixprs-spool'
@@ -43,13 +44,6 @@ class dixprs (
 		command => '/bin/systemctl mask serial-getty@ttyAMA0.service',
 		# TODO: make this conditional
 	}
-
-  user { 'pi':
-    ensure => present,
-    managehome => true,
-    gid => "pi",
-    shell => "/bin/bash",
-  }
   
 	# Grant membership of the dialout and tty groups
 	group { 'dialout':
