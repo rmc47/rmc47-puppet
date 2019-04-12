@@ -45,13 +45,5 @@ class dixprs (
     onlyif => '/usr/bin/test -e /dev/ttyAMA0'
 		# TODO: make this conditional so we only do it once
 	}
-  
-	# Grant membership of the dialout and tty groups
-	group { 'dialout':
-		members => "pi",
-	}
-	group { 'tty':
-		members => "pi",
-	}
 
 }
