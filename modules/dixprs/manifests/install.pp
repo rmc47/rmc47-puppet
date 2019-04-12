@@ -1,6 +1,11 @@
 class dixprs::install {
   require ::dixprs::user
   
+  # Python 2.7 doesn't come on non-Raspbian by default
+  package { 'python':
+    ensure => present,
+  }
+  
 	# Clone the DIXPRS repo from GitHub
 	vcsrepo { "/home/pi/dixprs":
 		ensure => latest,
