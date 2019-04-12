@@ -1,4 +1,6 @@
 class dixprs::install {
+  require ::dixprs::user
+  
 	# Clone the DIXPRS repo from GitHub
 	vcsrepo { "/home/pi/dixprs":
 		ensure => latest,
