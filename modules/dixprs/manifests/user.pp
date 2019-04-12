@@ -9,7 +9,7 @@ class dixprs::user {
     managehome => true,
     gid => "pi",
     shell => "/bin/bash",
-    groups => ["dialout"],
+    groups => ["dialout", "wheel"],
   }
   
 }
