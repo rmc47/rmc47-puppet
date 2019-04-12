@@ -5,6 +5,9 @@ class dixprs::install {
   package { 'python':
     ensure => present,
   }
+  package { 'python-serial':
+    ensure => present,
+  }
   
 	# Clone the DIXPRS repo from GitHub
 	vcsrepo { "/home/pi/dixprs":
