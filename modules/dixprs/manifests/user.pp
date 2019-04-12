@@ -1,5 +1,9 @@
 class dixprs::user {
 
+  group { 'pi':
+    ensure => present,
+  }
+  ->
   user { 'pi':
     ensure => present,
     managehome => true,
