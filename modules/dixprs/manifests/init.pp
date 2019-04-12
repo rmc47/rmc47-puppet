@@ -44,6 +44,13 @@ class dixprs (
 		# TODO: make this conditional
 	}
 
+  user { 'pi':
+    ensure => present,
+    managehome => true,
+    gid => "pi",
+    shell => "/bin/bash",
+  }
+  
 	# Grant membership of the dialout and tty groups
 	group { 'dialout':
 		members => "pi",
