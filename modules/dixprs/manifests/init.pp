@@ -38,11 +38,12 @@ class dixprs (
 	exec { 'disable-console-tty':
 		command => '/bin/sed -i "s/console=ttyAMA0[^\\ ]*\\ //" /boot/cmdline.txt',
 		cwd => '/',
-		unless => '/bin/grep -qv ttyAMA /boot/cmdline.txt',
+		unless => '/usr/bin/test ! -f /boot/cmdline.txt || /bin/grep -qv ttyAMA /boot/cmdline.txt',
 	}
 	exec { 'disable-console-tty-systemd':
 		command => '/bin/systemctl mask serial-getty@ttyAMA0.service',
-		# TODO: make this conditional
+    onlyif => '/usr/bin/test -e /dev/ttyAMA0'
+		# TODO: make this conditional so we only do it once
 	}
   
 	# Grant membership of the dialout and tty groups
