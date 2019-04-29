@@ -14,7 +14,7 @@ class dixprs::onewire_telemetry {
   }
 
   cron { 'OneWire Telemetry Beacon':
-    minute => '*/2',
+    minute => '*/15',
     command => '/home/pi/onewire_telemetry.sh',
     user => 'pi',
   }
