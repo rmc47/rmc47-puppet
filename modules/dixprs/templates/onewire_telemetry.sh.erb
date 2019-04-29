@@ -1,0 +1,16 @@
+#!/bin/bash
+cd /home/pi
+cat > telemetry_setup.myp << EOF
+*
+:MB7UM    :PARM.Temp
+EOF
+cp telemetry_setup.myp /home/pi/dixprs-spool
+TEMP_DECI_DEGREES=$(cat /sys/bus/w1/drivers/w1_slave_driver/28-*/w1_slave | tail -n 1 | awk -F"t=" '{print substr($2, 1, 3)}')
+SEQUENCE_NUMBER=$((($(cat telemetry_sequence_counter)+1)%100))
+echo $SEQUENCE_NUMBER > telemetry_sequence_counter
+PADDED_SEQUENCE_NUMBER=$(printf "%03d" $SEQUENCE_NUMBER)
+cat > telemetry_values.myp << EOF
+*
+T#$PADDED_SEQUENCE_NUMBER,$TEMP_DECI_DEGREES,000,000,000,000,00000000
+EOF
+cp telemetry_values.myp /home/pi/dixprs-spool
