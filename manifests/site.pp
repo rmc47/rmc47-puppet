@@ -12,3 +12,8 @@ node 'mb7ups', 'mb7upe', 'mb7upi' {
   include ::linux_common
   include ::dixprs
 }
+
+node 'mercury.syxis.co.uk' {
+  include ::linux_common
+  include ::syxis_authoritative_dns
+}
