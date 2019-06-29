@@ -58,7 +58,7 @@ class syxis_authoritative_dns {
     require => File['/opt/dnscontrol'],
   }
 
-  exec { '/opt/dnscontrol/bin/dnscontrol':
+  exec { 'Download dnscontrol':
     command => "/usr/bin/wget \"https://github.com/StackExchange/dnscontrol/releases/download/v2.9/dnscontrol-Linux\" -O /opt/dnscontrol/bin/dnscontrol && /bin/chmod +x /opt/dnscontrol/bin/dnscontrol",
     require => File['/opt/dnscontrol/bin'],
     creates => "/opt/dnscontrol/bin/dnscontrol",
@@ -77,5 +77,17 @@ class syxis_authoritative_dns {
       "bind": { "directory": "/var/cache/bind/zones" }
     }',
     require => Vcsrepo['/opt/dnscontrol/rmc47-dns'],
+  }
+
+  exec { 'Regenerate DNS zones':
+    refreshonly => true,
+    subscribe => Vcsrepo['/opt/dnscontrol/rmc47-dns'],
+    command => '/opt/dnscontrol/bin/dnscontrol push && /bin/systemctl reload bind9',
+    cwd => '/opt/dnscontrol/rmc47-dns',
+    require => [
+      Exec['Download dnscontrol'],
+      File['/opt/dnscontrol/rmc47-dns/creds.json'],
+      Vcsrepo['/opt/dnscontrol/rmc47-dns'],
+    ],
   }
 }
