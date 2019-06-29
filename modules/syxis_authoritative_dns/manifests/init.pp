@@ -45,6 +45,7 @@ class syxis_authoritative_dns {
     "chipperfield.name",
     "codeandcarriers.co.uk",
     "eximius-computing.co.uk",
+    "g3pye.org",
     "gb3pi.net",
     "gb3pi.org.net",
     "gb3pi.org.uk",
