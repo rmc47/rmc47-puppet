@@ -57,11 +57,10 @@ class syxis_authoritative_dns {
     require => File['/opt/dnscontrol'],
   }
 
-  file { '/opt/dnscontrol/bin/dnscontrol':
-    source => "https://github.com/StackExchange/dnscontrol/releases/download/v2.9/dnscontrol-Linux",
-    ensure => 'file',
-    mode => 'a+x',
+  exec { '/opt/dnscontrol/bin/dnscontrol':
+    command => "/usr/bin/wget \"https://github.com/StackExchange/dnscontrol/releases/download/v2.9/dnscontrol-Linux\" -O /opt/dnscontrol/bin/dnscontrol && /bin/chmod +x /opt/dnscontrol/bin/dnscontrol",
     require => File['/opt/dnscontrol/bin'],
+    creates => "/opt/dnscontrol/bin/dnscontrol",
   }
 
   vcsrepo { '/opt/dnscontrol/rmc47-dns':
