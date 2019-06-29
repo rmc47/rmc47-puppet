@@ -37,6 +37,7 @@ class syxis_authoritative_dns {
   ]
 
   $zones = [
+    "112-119.248.187.81.in-addr.arpa",
     "syxis.co.uk",
     "cambridgerepeaters.net",
     "cambridgeshire-raynet.net",
