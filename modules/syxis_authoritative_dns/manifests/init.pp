@@ -48,5 +48,28 @@ class syxis_authoritative_dns {
       allow_transfer => $buddyns_transfer_hosts,
     }
   }
-  
+
+  file { '/opt/dnscontrol':
+    ensure => 'directory',
+  }
+  file { '/opt/dnscontrol/bin':
+    ensure => 'directory',
+    require => File['/opt/dnscontrol'],
+  }
+
+  file { '/opt/dnscontrol/bin/dnscontrol':
+    source => "https://github.com/StackExchange/dnscontrol/releases/download/v2.9/dnscontrol-Linux",
+    ensure => 'file',
+    mode => 'a+x',
+    require => File['/opt/dnscontrol/bin'],
+  }
+
+  vcsrepo { '/opt/dnscontrol/rmc47-dns':
+    ensure => latest,
+    provider => git,
+    source => 'git@bitbucket.org:rmc47/rmc47-dns.git',
+    require => [ Package['git'] ],
+    user => 'pi',
+    revision => 'master',
+  }
 }
