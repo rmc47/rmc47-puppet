@@ -41,10 +41,11 @@ class syxis_authoritative_dns {
   ]
 
   $zones.each | String $zone | {
-    dns::zone { $name:
+    dns::zone { $zone:
       manage_file => false,
       allow_query => ['any'],
       allow_transfer => $buddyns_transfer_hosts,
+      zonefilepath => "/var/cache/bind/zones/${zone}.hosts",
     }
   }
   
