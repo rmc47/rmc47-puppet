@@ -46,6 +46,7 @@ class syxis_authoritative_dns {
       manage_file_name => true,
       allow_query => ['any'],
       allow_transfer => $buddyns_transfer_hosts,
+      filename => $zone,
     }
   }
 
