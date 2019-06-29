@@ -38,6 +38,9 @@ class syxis_authoritative_dns {
 
   $zones = [
     "syxis.co.uk",
+    "cambridgerepeaters.net",
+    "cambridgeshire-raynet.net",
+    "chipperfield.name",
   ]
 
   $zones.each | String $zone | {
