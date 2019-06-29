@@ -70,4 +70,11 @@ class syxis_authoritative_dns {
     require => [ Package['git'] ],
     revision => 'master',
   }
+
+  file { '/opt/dnscontrol/rmc47-dns/creds.json':
+    content => '{
+      "bind": { "directory": " /var/cache/bind/zones/" }
+    }',
+    require => Vcsrepo['/opt/dnscontrol/rmc47-dns'],
+  }
 }
