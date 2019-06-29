@@ -69,7 +69,6 @@ class syxis_authoritative_dns {
     provider => git,
     source => 'git@bitbucket.org:rmc47/rmc47-dns.git',
     require => [ Package['git'] ],
-    user => 'pi',
     revision => 'master',
   }
 }
