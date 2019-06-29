@@ -37,11 +37,29 @@ class syxis_authoritative_dns {
   ]
 
   $zones = [
-    "112-119.248.187.81.in-addr.arpa",
     "syxis.co.uk",
+    "112-119.248.187.81.in-addr.arpa",
+    "20thgillingham.com",
     "cambridgerepeaters.net",
     "cambridgeshire-raynet.net",
     "chipperfield.name",
+    "codeandcarriers.co.uk",
+    "eximius-computing.co.uk",
+    "gb3pi.net",
+    "gb3pi.org.net",
+    "gb3pi.org.uk",
+    "gb3ps.net",
+    "gb3pt.net",
+    "gb3pv.net",
+    "gb3px.net",
+    "gb3py.net",
+    "gb7pi.net",
+    "hamtechtalks.com",
+    "keywi.co.uk",
+    "m0vfc.co.uk",
+    "pod.me.uk",
+    "qrqsl.com",
+    "qrqsl.org",
   ]
 
   $zones.each | String $zone | {
