@@ -33,7 +33,7 @@ class m0wut ($site_hostname) {
   }
 
   exec { 'Create WP database user':
-    command => '/usr/bin/mysql -e "CREATE USER \'www-data\'@localhost IDENTIFIED VIA unix_socket; GRANT ALL ON m0wut_wordpress.* TO \'www-data\'@localhost; FLUSH PRIVILEGES;',
+    command => '/usr/bin/mysql -e "CREATE USER \'www-data\'@localhost IDENTIFIED VIA unix_socket; GRANT ALL ON m0wut_wordpress.* TO \'www-data\'@localhost; FLUSH PRIVILEGES;"',
     unless => '/usr/bin/mysql -e "SELECT * FROM mysql.user" | grep www-data',
     require => Exec['Create WP database'],
   }
@@ -55,5 +55,9 @@ class m0wut ($site_hostname) {
   exec { 'Configure SSL':
     command => "/usr/bin/certbot --apache --agree-tos --domain ${site_hostname} --redirect --email robert@syxis.co.uk --no-eff-email",
     creates => "/etc/letsencrypt/live/${site_hostname}/cert.pem",
+  }
+
+  file { '/var/www/html/index.html':
+    ensure => absent,
   }
 }
