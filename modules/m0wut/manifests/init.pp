@@ -1,5 +1,5 @@
-class m0wut {
-    
+class m0wut ($site_hostname) {
+
   package { [
     'apache2',
     'mariadb-server',
@@ -7,6 +7,8 @@ class m0wut {
     'php',
     'libapache2-mod-php',
     'php-mysql',
+    'certbot',
+    'python-certbot-apache',
     ]:
     ensure => present,
   }
@@ -48,5 +50,10 @@ class m0wut {
     ensure => present,
     content => template('m0wut/wp-config.php.erb'),
     require => Package['apache2'],
+  }
+
+  exec { 'Configure SSL':
+    command => "/usr/bin/certbot --apache --agree-tos --domain ${site_hostname} --redirect --email robert@syxis.co.uk --no-eff-email",
+    creates => "/etc/letsencrypt/live/${site_hostname}/cert.pem",
   }
 }
