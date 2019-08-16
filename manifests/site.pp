@@ -17,3 +17,8 @@ node 'mercury.syxis.co.uk' {
   include ::linux_common
   include ::syxis_authoritative_dns
 }
+
+node 'm0wut.syxis.co.uk' {
+  include ::linux_common
+  include ::m0wut
+}
