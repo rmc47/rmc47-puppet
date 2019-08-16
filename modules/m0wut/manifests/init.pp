@@ -36,13 +36,13 @@ class m0wut {
     unless => '/usr/bin/mysql -e "SELECT * FROM mysql.user" | grep www-data',
     require => Exec['Create WP database'],
   }
-  
+
   # Grab ourselves some unique salts
-  file { '/var/www/html/wp-salts.php':
-    ensure => present,
-    source => 'https://api.wordpress.org/secret-key/1.1/salt/',
+  exec { 'Create /var/www/html/wp-salts.php':
+    command => 'echo "<?php" > /var/www/html/wp-salts.php && /usr/bin/curl https://api.wordpress.org/secret-key/1.1/salt/ >> /var/www/html/wp-salts.php',
+    creates => '/var/www/html/wp-salts.php',
+    provider => 'shell',
     require => Package['apache2'],
-    source_permissions => ignore,
   }
 
   file { '/var/www/html/wp-config.php':
