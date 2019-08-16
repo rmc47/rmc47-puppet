@@ -11,18 +11,17 @@ class m0wut {
     ensure => present,
   }
 
-  file { '/var/www/wordpress.tar.gz':
-    ensure => present,
-    source => 'https://en-gb.wordpress.org/latest-en_GB.tar.gz',
+  exec { 'Download Wordpress':
+    command => '/usr/bin/wget https://en-gb.wordpress.org/latest-en_GB.tar.gz -O /var/www/wordpress.tar.gz',
+    creates => '/var/www/wordpress.tar.gz',
     require => Package['apache2'],
-    source_permissions => ignore,
   }
 
   exec { 'Unzip Wordpress':
     command => '/bin/tar xzf /var/www/wordpress.tar.gz --strip-components=1',
     cwd => '/var/www/html',
     creates => '/var/www/html/index.php',
-    require => File['/var/www/wordpress.tar.gz'],
+    require => Exec['Download Wordpress'],
   }
 
   exec { 'Create WP database':
