@@ -19,7 +19,7 @@ class m0wut {
   }
 
   exec { 'Unzip Wordpress':
-    cmd => '/bin/tar xzf /var/www/wordpress.tar.gz --strip-components=1',
+    command => '/bin/tar xzf /var/www/wordpress.tar.gz --strip-components=1',
     cwd => '/var/www/html',
     creates => '/var/www/html/index.php',
     require => File['/var/www/wordpress.tar.gz'],
