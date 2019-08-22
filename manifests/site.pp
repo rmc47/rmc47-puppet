@@ -22,3 +22,8 @@ node 'm0wut.syxis.co.uk' {
   include ::linux_common
   include ::m0wut
 }
+
+node 'diamond.syxis.co.uk' {
+  include ::linux_common
+  include ::kvm_hypervisor
+}
