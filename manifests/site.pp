@@ -1,5 +1,5 @@
 node 'iodine' {
-    include ::rmc_puppetmaster
+  include ::rmc_puppetmaster
 }
 
 node 'mb7um.cambridgerepeaters.net' {
@@ -30,5 +30,6 @@ node 'diamond.syxis.co.uk' {
 
 node 'bromine.syxis.co.uk' {
   include ::linux_common
+  include ::linux_common::rob
   include ::certbot_http01
 }
