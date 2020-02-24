@@ -6,5 +6,6 @@ class smtp_server::submission {
     submission => true,
     postgrey => false,
     spamassassin => false,
+    smtpd_recipient_restrictions => ['permit_sasl_authenticated', 'reject'],
   }
 }
