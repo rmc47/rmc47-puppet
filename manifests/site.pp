@@ -30,4 +30,5 @@ node 'diamond.syxis.co.uk' {
 
 node 'bromine.syxis.co.uk' {
   include ::linux_common
+  include ::certbot_http01
 }
