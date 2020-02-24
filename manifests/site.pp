@@ -32,4 +32,5 @@ node 'bromine.syxis.co.uk' {
   include ::linux_common
   include ::linux_common::rob
   include ::certbot_http01
+  include ::smtp_server::submission
 }
