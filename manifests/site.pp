@@ -27,3 +27,7 @@ node 'diamond.syxis.co.uk' {
   include ::linux_common
   include ::kvm_hypervisor
 }
+
+node 'bromine.syxis.co.uk' {
+  include ::linux_common
+}
