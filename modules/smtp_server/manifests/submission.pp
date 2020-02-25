@@ -5,6 +5,8 @@ class smtp_server::submission {
     ensure => latest,
   }
 
+  # TODO: template dovecot 10-master.conf
+
   class { '::postfix::server':
     relayhost => '[boron.syxis.co.uk]',
     ssl => true,
@@ -16,5 +18,6 @@ class smtp_server::submission {
     smtpd_recipient_restrictions => ['permit_sasl_authenticated', 'reject'],
     daemon_directory => '/usr/lib/postfix/sbin', # Otherwise it leads to daemon_directory conflicting with shlib_directory 😡
     inet_interfaces => 'all', # Don't just bind to localhost
+    smtpd_sasl_auth  => true, # enable SASL auth (defaults to Dovecot)
   }
 }
