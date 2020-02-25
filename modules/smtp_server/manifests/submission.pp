@@ -8,5 +8,6 @@ class smtp_server::submission {
     spamassassin => false,
     smtpd_recipient_restrictions => ['permit_sasl_authenticated', 'reject'],
     daemon_directory => '/usr/lib/postfix/sbin', # Otherwise it leads to daemon_directory conflicting with shlib_directory 😡
+    inet_interfaces => 'all', # Don't just bind to localhost
   }
 }
