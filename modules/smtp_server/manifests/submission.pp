@@ -20,4 +20,15 @@ class smtp_server::submission {
     inet_interfaces => 'all', # Don't just bind to localhost
     smtpd_sasl_auth  => true, # enable SASL auth (defaults to Dovecot)
   }
+
+  user { [
+    'rpc21',
+    'terry',
+    'maureen',
+    'bl2000',
+    'jlw200'
+    ]:
+    ensure => present,
+    shell => '/bin/false',
+  }
 }
