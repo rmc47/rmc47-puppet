@@ -1,4 +1,10 @@
 class smtp_server::submission {
+
+  # Postfix uses Dovecot for SASL auth
+  package { 'dovecot':
+    ensure => latest,
+  }
+
   class { '::postfix::server':
     relayhost => '[boron.syxis.co.uk]',
     ssl => true,
