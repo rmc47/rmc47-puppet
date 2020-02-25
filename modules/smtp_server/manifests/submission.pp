@@ -6,6 +6,8 @@ class smtp_server::submission {
   }
 
   # TODO: template dovecot 10-master.conf
+  # TODO: template login for 10-auth.conf
+  # TODO: add Wants=dovecot to /lib/systemd/system/postfix.service
 
   class { '::postfix::server':
     relayhost => '[boron.syxis.co.uk]',
