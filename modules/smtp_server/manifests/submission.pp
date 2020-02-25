@@ -1,7 +1,7 @@
 class smtp_server::submission {
 
   # Postfix uses Dovecot for SASL auth
-  package { 'dovecot':
+  package { 'dovecot-core':
     ensure => latest,
   }
 
