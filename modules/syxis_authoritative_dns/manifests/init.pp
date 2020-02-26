@@ -98,12 +98,17 @@ class syxis_authoritative_dns {
   exec { 'Regenerate DNS zones':
     refreshonly => true,
     subscribe => Vcsrepo['/opt/dnscontrol/rmc47-dns'],
-    command => '/opt/dnscontrol/bin/dnscontrol push && /usr/sbin/rndc reload',
+    command => '/opt/dnscontrol/bin/dnscontrol push',
     cwd => '/opt/dnscontrol/rmc47-dns',
     require => [
       Exec['Download dnscontrol'],
       File['/opt/dnscontrol/rmc47-dns/creds.json'],
       Vcsrepo['/opt/dnscontrol/rmc47-dns'],
     ],
+    notify => Service['bind9'],
+  }
+
+  service { 'bind9':
+    ensure => running,
   }
 }
