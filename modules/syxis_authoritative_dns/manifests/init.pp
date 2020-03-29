@@ -107,8 +107,4 @@ class syxis_authoritative_dns {
     ],
     notify => Service['bind9'],
   }
-
-  service { 'bind9':
-    ensure => running,
-  }
 }
