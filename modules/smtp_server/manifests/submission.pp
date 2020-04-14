@@ -12,8 +12,8 @@ class smtp_server::submission {
   class { '::postfix::server':
     relayhost => '[boron.syxis.co.uk]',
     ssl => true,
-    smtpd_tls_cert_file => '/etc/ssl/smtpd.crt',
-    smtpd_tls_key_file => '/etc/ssl/smtpd.key',
+    smtpd_tls_cert_file => '/etc/letsencrypt/live/smtp.syxis.co.uk/fullchain.pem',
+    smtpd_tls_key_file => '/etc/letsencrypt/live/smtp.syxis.co.uk/privkey.pem',
     submission => true,
     postgrey => false,
     spamassassin => false,
