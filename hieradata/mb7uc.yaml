@@ -1,5 +1,4 @@
 ---
-# This is now largely defunct as MB7UPI is now MB7UC, but kept here for now (2020-06-29) until it gets rebuilt with a new Puppet cert
 dixprs::callsign: MB7UC
 dixprs::latitude: 52.009807
 dixprs::longitude: -0.001924

@@ -8,7 +8,7 @@ node 'mb7um.cambridgerepeaters.net' {
   include ::dixprs::onewire_telemetry
 }
 
-node 'mb7ups', 'mb7upe', 'mb7upi' {
+node 'mb7ups', 'mb7upe', 'mb7upi', 'mb7uc' {
   include ::linux_common
   include ::dixprs
 }
