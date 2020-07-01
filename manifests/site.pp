@@ -2,7 +2,7 @@ node 'iodine' {
   include ::rmc_puppetmaster
 }
 
-node 'mb7um.cambridgerepeaters.net' {
+node 'mb7um.cambridgerepeaters.net','mb7vc.cambridgerepeaters.net' {
   include ::linux_common
   include ::dixprs
   include ::dixprs::onewire_telemetry
