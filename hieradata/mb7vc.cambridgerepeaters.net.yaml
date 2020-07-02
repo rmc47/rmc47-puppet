@@ -6,5 +6,5 @@ dixprs::symbol: "S#"
 dixprs::beaconText: Cambridgeshire Repeater Group digi, Washingley
 dixprs::aprsisHost: euro.aprs2.net
 dixprs::aprsisFilter: r/@/50
-dixprs::kissPort: /dev/ttyAMA0
+dixprs::kissPort: /dev/serial0
 dixprs::serialSpeed: 19200
