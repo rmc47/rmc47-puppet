@@ -14,4 +14,8 @@ class crg_web_server {
     ]:
     ensure => installed,
   }
+
+  package { 'apache2':
+    ensure => absent,
+  }
 }
