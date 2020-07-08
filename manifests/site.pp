@@ -34,3 +34,7 @@ node 'bromine.syxis.co.uk' {
   include ::certbot_http01
   include ::smtp_server::submission
 }
+
+node 'calcium.syxis.co.uk' {
+  include ::crg_web_server
+}
