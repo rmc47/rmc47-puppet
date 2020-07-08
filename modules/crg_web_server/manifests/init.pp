@@ -11,6 +11,7 @@ class crg_web_server {
     'php7.4-cli',
     'php7.4-fpm',
     'php7.4-mysql',
+    'python3-certbot-nginx',
     ]:
     ensure => installed,
   }
