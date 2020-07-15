@@ -5,7 +5,7 @@ class smtp_server::submission {
     ensure => latest,
   }
 
-  package { 'opendkim-tools':
+  package { ['opendkim-tools', 'opendkim']:
     ensure => installed,
   }
 
@@ -43,6 +43,15 @@ class smtp_server::submission {
   }
   file { '/etc/mail/dkim-keys':
     ensure => directory,
+    require => File['/etc/mail'],
+  }
+
+  file { '/etc/mail/dkim.key':
+    ensure => file,
+    content => '
+      *@syxis.co.uk:syxis.co.uk:/etc/mail/dkim-keys/syxis.co.uk/dt.private
+      *@chipperfield.name:chipperfield.name:/etc/mail/dkim-keys/chipperfield.name/dt.private
+      ',
     require => File['/etc/mail'],
   }
 }
