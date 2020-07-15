@@ -14,7 +14,6 @@ class smtp_server::submission {
   # TODO: add Wants=dovecot to /lib/systemd/system/postfix.service
 
   class { '::postfix::server':
-    relayhost => '[boron.syxis.co.uk]',
     ssl => true,
     smtpd_tls_cert_file => '/etc/letsencrypt/live/smtp.syxis.co.uk/fullchain.pem',
     smtpd_tls_key_file => '/etc/letsencrypt/live/smtp.syxis.co.uk/privkey.pem',
