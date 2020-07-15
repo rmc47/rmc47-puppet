@@ -5,6 +5,10 @@ class smtp_server::submission {
     ensure => latest,
   }
 
+  package { 'opendkim-tools':
+    ensure => installed,
+  }
+
   # TODO: template dovecot 10-master.conf
   # TODO: template login for 10-auth.conf
   # TODO: add Wants=dovecot to /lib/systemd/system/postfix.service
@@ -32,5 +36,13 @@ class smtp_server::submission {
     ]:
     ensure => present,
     shell => '/bin/false',
+  }
+
+  file { '/etc/mail':
+    ensure => directory,
+  }
+  file { '/etc/mail/dkim-keys':
+    ensure => directory,
+    require => File['/etc/mail'],
   }
 }
