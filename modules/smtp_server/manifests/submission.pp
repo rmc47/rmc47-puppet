@@ -54,18 +54,14 @@ class smtp_server::submission {
 
   file { '/etc/mail/dkim.keytable':
     ensure => file,
-    content => '
-      syxiscouk syxis.co.uk:default:/etc/mail/dkim-keys/syxis.co.uk/default.private
-      chipperfieldname chipperfield.name:default:/etc/mail/dkim-keys/chipperfield.name/default.private
-      ',
+    content => 'syxiscouk syxis.co.uk:default:/etc/mail/dkim-keys/syxis.co.uk/default.private
+chipperfieldname chipperfield.name:default:/etc/mail/dkim-keys/chipperfield.name/default.private',
     require => File['/etc/mail'],
   }
   file { '/etc/mail/dkim.signingtable':
     ensure => file,
-    content => '
-      *@syxis.co.uk syxiscouk
-      *@chipperfield.name chipperfieldname
-      ',
+    content => '*@syxis.co.uk syxiscouk
+*@chipperfield.name chipperfieldname',
     require => File['/etc/mail'],
   }
 
@@ -77,7 +73,7 @@ class smtp_server::submission {
   }
 
   file_line {'OpenDKIM SigningTable':
-    line => 'SigningTable /etc/mail/dkim.signingtable',
+    line => 'SigningTable refile:/etc/mail/dkim.signingtable',
     path => '/etc/opendkim.conf',
     match => '^SigningTable',
     require => Package['opendkim'],
