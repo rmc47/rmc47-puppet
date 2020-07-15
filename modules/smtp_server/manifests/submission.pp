@@ -25,6 +25,12 @@ class smtp_server::submission {
     daemon_directory => '/usr/lib/postfix/sbin', # Otherwise it leads to daemon_directory conflicting with shlib_directory 😡
     inet_interfaces => 'all', # Don't just bind to localhost
     smtpd_sasl_auth  => true, # enable SASL auth (defaults to Dovecot)
+    extra_main_parameters => {
+      # Push mails to OpenDKIM
+      smtpd_milters => 'inet:127.0.0.1:8892',
+      non_smtpd_milters => 'inet:127.0.0.1:8892',
+      milter_default_action => 'accept',
+    }
   }
 
   user { [
