@@ -46,12 +46,41 @@ class smtp_server::submission {
     require => File['/etc/mail'],
   }
 
-  file { '/etc/mail/dkim.key':
+  file { '/etc/mail/dkim.keytable':
     ensure => file,
     content => '
-      *@syxis.co.uk:syxis.co.uk:/etc/mail/dkim-keys/syxis.co.uk/dt.private
-      *@chipperfield.name:chipperfield.name:/etc/mail/dkim-keys/chipperfield.name/dt.private
+      syxiscouk syxis.co.uk:default:/etc/mail/dkim-keys/syxis.co.uk/default.private
+      chipperfieldname chipperfield.name:default:/etc/mail/dkim-keys/chipperfield.name/default.private
       ',
     require => File['/etc/mail'],
+  }
+  file { '/etc/mail/dkim.signingtable':
+    ensure => file,
+    content => '
+      *@syxis.co.uk syxiscouk
+      *@chipperfield.name chipperfieldname
+      ',
+    require => File['/etc/mail'],
+  }
+
+  file_line { 'OpenDKIM KeyTable':
+    line => 'KeyTable /etc/mail/dkim.keytable',
+    path => '/etc/opendkim.conf',
+    match => '^KeyTable',
+    require => Package['opendkim'],
+  }
+
+  file_line {'OpenDKIM SigningTable':
+    line => 'SigningTable /etc/mail/dkim.signingtable',
+    path => '/etc/opendkim.conf',
+    match => '^SigningTable',
+    require => Package['opendkim'],
+  }
+
+  file_line {'OpenDKIM inet socket':
+    line => 'Socket inet:8892@localhost',
+    path => '/etc/opendkim.conf',
+    match => '^Socket',
+    require => Package['opendkim'],
   }
 }
