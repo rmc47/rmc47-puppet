@@ -83,7 +83,7 @@ class syxis_authoritative_dns {
   vcsrepo { '/opt/dnscontrol/rmc47-dns':
     ensure => latest,
     provider => git,
-    source => 'git@bitbucket.org:rmc47/rmc47-dns.git',
+    source => 'git@github.com:rmc47/rmc47-dns.git',
     require => [ Package['git'] ],
     revision => 'master',
   }
