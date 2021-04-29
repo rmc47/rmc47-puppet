@@ -40,6 +40,7 @@ class syxis_authoritative_dns {
     "syxis.co.uk",
     "112-119.248.187.81.in-addr.arpa",
     "20thgillingham.com",
+    "camb-hams.com",
     "cambridgerepeaters.net",
     "cambridgeshire-raynet.net",
     "chipperfield.name",
