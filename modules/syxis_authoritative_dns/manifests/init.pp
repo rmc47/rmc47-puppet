@@ -76,7 +76,7 @@ class syxis_authoritative_dns {
   }
 
   exec { 'Download dnscontrol':
-    command => "/usr/bin/wget \"https://github.com/StackExchange/dnscontrol/releases/download/v3.2.0/dnscontrol-Linux\" -O /opt/dnscontrol/bin/dnscontrol && /bin/chmod +x /opt/dnscontrol/bin/dnscontrol",
+    command => "/usr/bin/wget \"https://github.com/StackExchange/dnscontrol/releases/download/v3.15.0/dnscontrol-Linux\" -O /opt/dnscontrol/bin/dnscontrol && /bin/chmod +x /opt/dnscontrol/bin/dnscontrol",
     require => File['/opt/dnscontrol/bin'],
     creates => "/opt/dnscontrol/bin/dnscontrol",
   }
