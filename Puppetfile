@@ -1,7 +1,7 @@
 forge "https://forgeapi.puppetlabs.com"
 moduledir './ext-modules'
 
-mod 'puppetlabs/puppet_agent', '4.1.0'
+mod 'puppetlabs/puppet_agent', '4.10.0'
 mod 'puppetlabs/vcsrepo', '5.0.0'
 mod 'puppetlabs/stdlib', '8.1.0'
 mod 'puppetlabs/concat', '7.1.0'
