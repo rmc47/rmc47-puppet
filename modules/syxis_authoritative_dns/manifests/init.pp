@@ -55,6 +55,7 @@ class syxis_authoritative_dns {
     "pod.me.uk",
     "qrqsl.com",
     "qrqsl.org",
+    "zd9uw.org.uk",
   ]
 
   $zones.each | String $zone | {
